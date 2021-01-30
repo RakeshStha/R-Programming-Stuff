@@ -119,4 +119,103 @@ data <- read.csv("Weather.csv",header = TRUE, sep =",")
 data
 
 
+# test practise
+#Vector
+
+Department<-c("IT","HR","Admin","MKT","Research")
+Salary<-c(55000,40000,45000,50000,40000)
+
+#Data Frame
+
+EmployData<-data.frame(Department=Department,"SalaryOfEmploy"=Salary)
+
+print(EmployData)
+
+
+Department<-c("IT","HR","Admin","MKT","ENG")
+Salary<-c(55000,40000,45000,58000,43000)
+EmployData<-data.frame(Department=Department,"SalaryOfEmploy"=Salary)
+
+sum(EmployData$SalaryOfEmploy)
+max((EmployData$SalaryOfEmploy))
+min((EmployData$SalaryOfEmploy))
+
+
+EmployData[which.max(EmployData$SalaryOfEmploy),1] # Show the Department with the highest salary of employ.
+
+
+
+#Update Information
+
+EmployData[Department=="ENG",2]=41000 # Update the employ salary from "ENG" Department to 41000
+
+
+#Rename ENG to CSE
+
+EmployData[EmployData$Department=="ENG",1]="CSE"
+
+
+#Restruct the "ENG" Department by Replacing "ENG" Deparemnt with: 1. "B.Tech" Department with 44000 salary
+# 2. "B.Tech IT" Department with 55000 salary
+Department<-c("IT","HR","Admin","MKT","ENG")
+Number_Of_Employ<-c(450,553,720,300,120)
+EmployData<-data.frame(Department=Department,"NumberOfEmploy"=Number_Of_Employ)
+
+EmployData=EmployData[-5,]
+RestDepartment=data.frame(Department=c("B.Tech","B.Tech IT"), NumberOfEmploy=c(200,400))
+EmployData=rbind(EmployData,RestDepartment)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Department<-c("IT","HR","Admin","MKT","ENG")
+Number_Of_Employ<-c(450,553,720,300,120)
+EmployData<-data.frame(Department=Department,"NumberOfEmploy"=Number_Of_Employ)
+EmployData=EmployData[-3,]
+
+newDepartment=data.frame(Department=c("Btech", "BBM"), NumberOfEmploy=c(2000,3000) )
+
+EmployData=rbind(EmployData,newDepartment)
+
+
+
+#function
+Employ=function(EmployData){
+  Total_salary=EmployData[which.max(EmployData$NumberOfEmploy),2]
+  Total_celing=celing(Total_salary/5)
+  
+}
+
+
+
+
+
+
+
+#Function
+ 
+ProjectResourcePlan=function(employInfo){
+  TotalEmpNo=employInfo[which.max(employInfo$NumberOfEmploy),2]
+  TotalComNo=ceiling(TotalEmpNo/5)
+  
+  if(TotalComNo%%2!=0){
+    
+  }
+}
+
+
+
+
 
